@@ -33,7 +33,7 @@ const Home = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white hover:underline">
+                <a href="#footer" className="text-white hover:underline">
                   Contact
                 </a>
               </li>
