@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 
 const Home = () => {
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 py-4">
