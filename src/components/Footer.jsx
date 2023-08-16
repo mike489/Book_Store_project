@@ -59,7 +59,9 @@ const Footer = () => {
             {/* <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
               Subscribe
             </button> */}
-            <Button onClick={()=>alert("clicked")}>Subscribe</Button>
+            <Button onClick={() => alert("clicked")} primary>
+              Subscribe
+            </Button>
           </div>
         </div>
         <div className="text-gray-400">
