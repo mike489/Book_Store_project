@@ -1,57 +1,75 @@
-import React from 'react'
-
+import React from "react";
+import { BiPhone, BiMap } from "react-icons/bi";
+import { AiOutlineMail } from "react-icons/ai";
+import Button from "./Button";
 const Footer = () => {
   return (
-    <div>
-      <div className=' mx-[50px]  mt-[200px] grid grid-cols-3'>
-        <div className=' col-span-1 flex flex-col gap-20'>
-            <div className=' flex flex-col gap-7'>
-              <div>  LOGO</div>
-              <div> 
-                <ul>
-                    <li className=' text-[16px] font-normal text-[#29292E]'>221 B Santa Monica, Los Angeles</li>
-                    <li className=' text-[16px] font-normal text-[#29292E]'>(+1) 923 2341 22</li>
-                    <li className=' text-[16px] font-normal text-[#29292E]'>Contact@tanahairstudio.com</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <p className=' text-[16px] font-normal text-[#29292E]'>@2020 TanahAir Studio. All rights reserved.</p>
-            </div>
-        </div>
-        <div className=' col-span-1 flex justify-between items-center  '>
-             <div className=' flex flex-col gap-4'>
-                <div>Categories</div>
-                <div>
-                    <ul className=''>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Dairy & Milk</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Fresh Produce</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Meat</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Snacks</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Frozen</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Vegetables</li>
-                    </ul>
+    <div className="">
+      <footer className="bg-white py-4 mt-8 text-black pl-10 font-mono">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+          <div className="flex flex-col items-start space-y-5">
+            <p className="font-bold">Contact</p>
+            <ul>
+              <li>
+                <div className="flex items-center">
+                  <BiMap />
+                  <a href="#">221 B Santa Monica, Los Angeles</a>
                 </div>
-             </div>
-             <div className=' flex flex-col gap-4'>
-                <div>Categories</div>
-                <div>
-                    <ul className=''>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Dairy & Milk</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Fresh Produce</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Meat</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Snacks</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Frozen</li>
-                        <li className='text-[12px] font-normal text-[#29292E] mb-3'>Vegetables</li>
-                    </ul>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <BiPhone />
+                  <a href="#">+923234122</a>
                 </div>
-             </div>
-        </div>
-        <div></div>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <AiOutlineMail />
+                  <a href="#">contact@tanahairstudio.com</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col items-start space-y-5">
+            <p className="font-bold">Company</p>
+            <ul>
+              <li>
+                <a href="#">About Us</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+              <li>
+                <a href="#">Privacy & Poilicy</a>
+              </li>
+              <li>
+                <a href="#">Payment Method</a>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col items-start space-y-3 w-full">
+            <h1 className="font-bold">Join Our Newsletter</h1>
+            <p className="text-gray-400 "> Your Email </p>
 
-      </div>
+            <input
+              className="px-4 py-2  rounded-lg border border-gray-300 focus:outline-none "
+              type="text"
+              placeholder="Enter Your Email"
+            />
+            {/* <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
+              Subscribe
+            </button> */}
+            <Button onClick={() => alert("clicked")} primary>
+              Subscribe
+            </Button>
+          </div>
+        </div>
+        <div className="text-gray-400">
+          &copy; {new Date().getFullYear()} My Bookstore. All rights reserved.
+        </div>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
