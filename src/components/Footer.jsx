@@ -1,6 +1,7 @@
 import React from "react";
 import { BiPhone, BiMap } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
+import Button from "./Button";
 const Footer = () => {
   return (
     <div className="">
@@ -55,9 +56,12 @@ const Footer = () => {
               type="text"
               placeholder="Enter Your Email"
             />
-            <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
+            {/* <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
               Subscribe
-            </button>
+            </button> */}
+            <Button onClick={() => alert("clicked")} primary>
+              Subscribe
+            </Button>
           </div>
         </div>
         <div className="text-gray-400">
