@@ -24,14 +24,20 @@ export const books = [
     name: "Juicy Orange",
   },
   {
-    id: 3,
+    id: 4,
     imageSrc: BookImage4,
     price: "2.49",
     name: "Juicy Orange",
   },
   {
-    id: 3,
+    id: 5,
     imageSrc: BookImage5,
+    price: "2.49",
+    name: "Juicy Orange",
+  },
+  {
+    id: 3,
+    imageSrc: BookImage3,
     price: "2.49",
     name: "Juicy Orange",
   },
