@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import NavBar from "../components/NavBar";
@@ -59,18 +59,17 @@ const Home = () => {
             Show All
           </span>
         </div>
-        
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 xl:grid-cols-6">
-            {books.map((book) => (
-              <BookCard
-                key={book.id}
-                imageSrc={book.imageSrc}
-                price={book.price}
-                name={book.name}
-              />
-            ))}
-          </div>
-        
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 xl:grid-cols-6">
+          {books.map((book) => (
+            <BookCard
+              key={book.id}
+              imageSrc={book.imageSrc}
+              price={book.price}
+              name={book.name}
+            />
+          ))}
+        </div>
       </div>
       <div className="mt-20">
         <Footer />
