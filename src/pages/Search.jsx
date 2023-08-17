@@ -11,7 +11,7 @@ const search = () => {
     <div className=" bg-white">
       <NavBar/>
       <div className=" grid grid-cols-1 lg:grid-cols-5 bg-white  m-[50px] gap-2 ">
-        <div className=" col-span-1 flex flex-row   lg:flex-col max-h-[510px] w-full border-[1px]  bg-white">
+        <div className=" col-span-1 flex flex-row   lg:flex-col max-h-[5] w-full border-[1px]  bg-white">
           {categories.map((category, index) => (
             <CategoryCard
               key={index}
