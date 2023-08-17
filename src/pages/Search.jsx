@@ -4,12 +4,12 @@ import CategoryCard from "../components/CategoryCard";
 import { categories, books } from "../TempData";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
-// import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar";
 
 const search = () => {
   return (
     <div className=" bg-white">
-      {/* <NavBar/> */}
+      <NavBar/>
       <div className=" grid grid-cols-1 lg:grid-cols-5 bg-white  m-[50px] gap-2 ">
         <div className=" col-span-1 flex flex-row   lg:flex-col max-h-[510px] w-full border-[1px]  bg-white">
           {categories.map((category, index) => (
