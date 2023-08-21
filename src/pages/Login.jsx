@@ -83,10 +83,18 @@ const Login = () => {
             </div>
           </div>
           <div className="flex-col justify-start items-start gap-4 flex w-full">
-            <Button primary className={"w-full"} onClick={() => alert("Sign in clicked")}>
+            <Button
+              primary
+              className={"w-full"}
+              onClick={() => alert("Sign in clicked")}
+            >
               Sign in
             </Button>
-            <Button primary className={"bg-slate-200 text-slate-600 w-full"} onClick={() => alert("google clicked")}>
+            <Button
+              primary
+              className={"bg-slate-200 text-slate-600 w-full"}
+              onClick={() => alert("google clicked")}
+            >
               Sign in with Google
             </Button>
           </div>
