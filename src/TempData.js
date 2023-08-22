@@ -4,6 +4,26 @@ import BookImage3 from "../src/assets/book3 6.png";
 import BookImage4 from "../src/assets/book5 4.png";
 import BookImage5 from "../src/assets/book16 4.png";
 
+export const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 1024 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 1024, min: 800 },
+    items: 4,
+  },
+  tablet: {
+    breakpoint: { max: 800, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
+
 export const books = [
   {
     id: 1,
@@ -63,5 +83,4 @@ export const categories = [
       "Kitchen & Food Staff",
     ],
   },
-  
 ];
