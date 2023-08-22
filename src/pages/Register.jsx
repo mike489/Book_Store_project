@@ -77,7 +77,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch justify-between items-center inline-flex gap-3">
+          <div className="self-stretch justify-between items-center inline-flex gap-8">
             <div className="justify-start items-center gap-2 flex">
               <input type="checkbox" name="" id="" />
               <div className="text-slate-700 text-sm font-medium leading-tight">
@@ -103,11 +103,11 @@ const Login = () => {
             <Button
               primary
               className={
-                "bg-white text-slate-950 w-full rounded-lg shadow border border-gray-300"
+                "bg-white w-full rounded-lg shadow border border-gray-300"
               }
               onClick={() => alert("google clicked")}
             >
-              <div className="flex flex-row gap-3 justify-center">
+              <div className="flex flex-row gap-3 justify-center text-slate-950">
                 <FcGoogle className="w-6 h-6 relative" />
                 Sign up with Google
               </div>
