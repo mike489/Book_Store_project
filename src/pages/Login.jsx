@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [password, setPassword] = useState();
@@ -92,10 +94,15 @@ const Login = () => {
             </Button>
             <Button
               primary
-              className={"bg-slate-200 text-slate-600 w-full"}
+              className={
+                "bg-white w-full rounded-lg shadow border border-gray-300"
+              }
               onClick={() => alert("google clicked")}
             >
-              Sign in with Google
+              <div className="flex flex-row gap-3 justify-center text-slate-950">
+                <FcGoogle className="w-6 h-6 relative" />
+                Sign up with Google
+              </div>
             </Button>
           </div>
         </div>
@@ -106,7 +113,7 @@ const Login = () => {
           <div className="justify-start items-start flex">
             <div className="justify-center items-center gap-2 flex">
               <div className="text-violet-700 text-sm font-semibold leading-tight">
-                Sign up
+                <Link to={"/Register"}>Sign up</Link>
               </div>
             </div>
           </div>
