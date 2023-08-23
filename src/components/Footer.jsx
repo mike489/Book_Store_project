@@ -1,11 +1,12 @@
 import React from "react";
 import { BiPhone, BiMap } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
-
+import Button from "./Button";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className="">
-      <footer className="bg-gray-100 py-4 mt-8 text-black pl-10 font-mono">
+    <div>
+      <footer className="bg-white py-4 mt-8 text-black pl-10 font-primary">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           <div className="flex flex-col items-start space-y-5">
             <p className="font-bold">Contact</p>
@@ -13,19 +14,19 @@ const Footer = () => {
               <li>
                 <div className="flex items-center">
                   <BiMap />
-                  <a href="#">221 B Santa Monica, Los Angeles</a>
+                  <Link href="#">221 B Santa Monica, Los Angeles</Link>
                 </div>
               </li>
               <li>
                 <div className="flex items-center">
                   <BiPhone />
-                  <a href="#">+923234122</a>
+                  <Link href="#">+923234122</Link>
                 </div>
               </li>
               <li>
                 <div className="flex items-center">
                   <AiOutlineMail />
-                  <a href="#">contact@tanahairstudio.com</a>
+                  <Link href="#">contact@tanahairstudio.com</Link>
                 </div>
               </li>
             </ul>
@@ -34,16 +35,16 @@ const Footer = () => {
             <p className="font-bold">Company</p>
             <ul>
               <li>
-                <a href="#">About Us</a>
+                <Link href="#">About Us</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link href="#">Contact Us</Link>
               </li>
               <li>
-                <a href="#">Privacy & Poilicy</a>
+                <Link href="#">Privacy & Poilicy</Link>
               </li>
               <li>
-                <a href="#">Payment Method</a>
+                <Link href="#">Payment Method</Link>
               </li>
             </ul>
           </div>
@@ -59,9 +60,9 @@ const Footer = () => {
             {/* <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
               Subscribe
             </button> */}
-            <button onClick={() => alert("clicked")} primary>
+            <Button onClick={() => alert("clicked")} primary>
               Subscribe
-            </button>
+            </Button>
           </div>
         </div>
         <div className="text-gray-400">
