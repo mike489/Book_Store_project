@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './ShoppingCart.css'; // Import your CSS file
+import "./ShoppingCart.css"; // Import your CSS file
 
 function ShoppingCart() {
   const [cartItemCount, setCartItemCount] = useState(0);
@@ -11,7 +11,7 @@ function ShoppingCart() {
     setCartItemCount(cartItemCount + 1);
 
     const item = e.target.parentNode.cloneNode(true);
-    item.lastElementChild.innerText = 'Buy-now';
+    item.lastElementChild.innerText = "Buy-now";
 
     setSelectedItems([...selectedItems, item]);
   };
@@ -26,8 +26,8 @@ function ShoppingCart() {
         <div className="item">
           <img src="image/043.jpg" alt="Item 1" />
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, quo, modi ea voluptas tempora vero
-            cumque incidunt eum animi
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem,
+            quo, modi ea voluptas tempora vero cumque incidunt eum animi
           </p>
           <h6>$345.89</h6>
           <span></span>
@@ -37,7 +37,7 @@ function ShoppingCart() {
         </div>
         {/* ... Repeat similar code for other items ... */}
       </section>
-      <div className={`select ${selectedItems.length > 0 ? 'display' : ''}`}>
+      <div className={`select ${selectedItems.length > 0 ? "display" : ""}`}>
         {selectedItems.map((item, index) => (
           <div key={index} className="item">
             {item}
