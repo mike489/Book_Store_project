@@ -1,10 +1,11 @@
 import React from "react";
 import { BiPhone, BiMap } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
+
 const Footer = () => {
   return (
     <div className="">
-      <footer className="bg-white py-4 mt-8 text-black pl-10 font-mono">
+      <footer className="bg-gray-100 py-4 mt-8 text-black pl-10 font-mono">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           <div className="flex flex-col items-start space-y-5">
             <p className="font-bold">Contact</p>
@@ -55,7 +56,10 @@ const Footer = () => {
               type="text"
               placeholder="Enter Your Email"
             />
-            <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
+            {/* <button className="text-white font-medium p-2 px-5 rounded-md bg-[#237943]">
+              Subscribe
+            </button> */}
+            <button onClick={() => alert("clicked")} primary>
               Subscribe
             </button>
           </div>
