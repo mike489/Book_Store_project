@@ -69,6 +69,7 @@ const Home = () => {
         </div>
 
         <Carousel
+          infinite
           responsive={responsive}
           customRightArrow={
             <div className="absolute arrow-btn left-1 text-center cursor-pointer bg-main-green-color rounded-full">
@@ -98,6 +99,7 @@ const Home = () => {
           </span>
         </div>
         <Carousel
+          infinite
           responsive={responsive}
           customRightArrow={
             <div className="absolute arrow-btn left-1 text-center cursor-pointer bg-main-green-color rounded-full">

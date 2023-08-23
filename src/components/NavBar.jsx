@@ -6,7 +6,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 
 const NavBar = () => {
   return (
-    <nav className="bg-white sticky top-0 shadow-sm">
+    <nav className="bg-white sticky top-0 shadow-sm z-50">
       <div className="container mx-auto flex items-center justify-between gap-10 py-4">
         <div className="pl-[50px] flex justify-center items-center gap-10">
           {" "}
@@ -19,14 +19,14 @@ const NavBar = () => {
           </div>
         </div>
         <div className="relative  w-full flex items-center flex-auto ">
-        {/* <div className="relative flex items-center"> */}
-              <FaSearch size={16} className=" absolute left-3 text-gray-600" />
-              <input
-                type="text"
-                className="bg-[#F6F6F6] flex flex-auto text-[18px] font-normal text-black py-2 pl-10 pr-3  focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Search books..."
-              />
-            {/* </div> */}
+          {/* <div className="relative flex items-center"> */}
+          <FaSearch size={16} className=" absolute left-3 text-gray-600" />
+          <input
+            type="text"
+            className="bg-[#F6F6F6] flex flex-auto text-[18px] font-normal text-black py-2 pl-10 pr-3  focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Search books..."
+          />
+          {/* </div> */}
         </div>
 
         <div className="flex items-center mr-[100px] gap-10">
