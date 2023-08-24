@@ -7,7 +7,6 @@ import { books, responsive } from "../TempData";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const Product = books.map((book) => (
@@ -47,11 +46,10 @@ const Home = () => {
                   <p className="text-2xl tracking-tight">
                     Buy 5 or more Save $1 each
                   </p>
-                  <div className="">
-                    <Link className="flex flex-col items-center w-fit">
-                      <BiChevronRight className="w-3.5 h-3.5 ml-2 " /> Shop Now
-                    </Link>
-                  </div>
+                  <button className="inline-flex items-center self-start space-x-2 p-5 px-16">
+                    Shop Now
+                    <BiChevronRight />
+                  </button>
                 </div>
               </div>
             ))}
