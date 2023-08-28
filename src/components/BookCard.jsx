@@ -2,12 +2,12 @@ import React from "react";
 
 const BookCard = ({ imageSrc, price, name }) => {
   return (
-    <div>
-      <div>
+    <div className="">
+      <div className="">
         <img
           src={imageSrc}
           alt=""
-          className="object-cover object-center h-[280px] w-full"
+          className="object-cover object-center h-[280px] w-full overflow-hidden"
         />
       </div>
       <div className="text-[18px] font-bold text-[#237943] ml-5 flex flex-col gap-[2px]">

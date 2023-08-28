@@ -1,12 +1,15 @@
-import React from "react";
+
 import { FaSearch, FaRegUserCircle } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
-
+import { Link } from "react-router-dom";
+import {  useSelector } from 'react-redux';
 const NavBar = () => {
+  const total= useSelector ((state)=>state.cart.totalPrice)
+  const formattedTotalPrice = `$${total.toFixed(2)}`;
   return (
-    <nav className="bg-white sticky top-0 shadow-sm">
+    <nav className="bg-white sticky top-0 shadow-sm z-10">
       <div className="container mx-auto flex items-center justify-between gap-10 py-4">
         <div className="pl-[50px] flex justify-center items-center gap-10">
           {" "}
@@ -31,19 +34,21 @@ const NavBar = () => {
 
         <div className="flex items-center mr-[100px] gap-10">
           <div className="mr-2">
-            <button className="flex gap-3 justify-between items-center ">
+           <Link to="/"> <button className="flex gap-3 justify-between items-center ">
               <FaRegUserCircle size={20} />
               SignIn
-            </button>
+            </button></Link>
           </div>
           <button className=" flex gap-3 justify-center items-center">
             <CiHeart size={20} className="flex gap-2" />
             Wishlist
           </button>
+          <Link to="/cart">
           <button className="flex  gap-3 justify-center items-center">
             <AiOutlineShoppingCart className="flex  gap-2" />
-            $0.00
+            {formattedTotalPrice}
           </button>
+          </Link>
         </div>
       </div>
     </nav>
