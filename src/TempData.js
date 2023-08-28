@@ -24,7 +24,7 @@ export const responsive = {
   },
 };
 
-export const books = [
+export const booksData = [
   {
     id: 1,
     imageSrc: BookImage1,
