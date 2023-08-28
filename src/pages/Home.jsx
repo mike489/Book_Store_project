@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Button from "../components/Button";
 import NavBar from "../components/NavBar";
 import BookCard from "../components/BookCard";
-import { books } from "../TempData";
+import { booksData } from "../TempData";
 
 const Home = () => {
   return (
@@ -36,7 +36,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 xl:grid-cols-6">
-          {books.map((book) => (
+          {booksData.map((book) => (
             <BookCard
               key={book.id}
               imageSrc={book.imageSrc}
@@ -61,7 +61,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 xl:grid-cols-6">
-          {books.map((book) => (
+          {booksData.map((book) => (
             <BookCard
               key={book.id}
               imageSrc={book.imageSrc}
