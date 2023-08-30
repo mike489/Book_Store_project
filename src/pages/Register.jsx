@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { signup } from "../features/User/UserSlice";
+import { signup } from "../features/user/UserSlice";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,7 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    console.log("")
 
     const newUser = {
       name: data.name,
