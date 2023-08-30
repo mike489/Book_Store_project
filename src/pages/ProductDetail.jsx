@@ -21,7 +21,7 @@ export default function ProductDetail() {
   
      <div className="product-detail">
       
-      <div className="product-upper flexs ">
+      <div className="product-upper flex ">
         <img src={book} alt=""
           className="w-2/5 " />
         <div className="buttons flex flex-col gap-4 w-1/2 m-20 pr-20">
