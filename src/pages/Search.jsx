@@ -2,7 +2,7 @@
 
 import BookCard from "../components/BookCard";
 import CategoryCard from "../components/CategoryCard";
-import { categories} from "../TempData";
+import { categories } from "../TempData";
 import Button from "../components/Button";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/Cart/cartSlice';
@@ -37,9 +37,9 @@ const search = () => {
 
   const handleAddToCart = (bookId) => {
     dispatch(addToCart(bookId));
-    console.log(bookId)
-    console.log(cartItems)
-    console.log(total)
+    console.log(bookId);
+    console.log(cartItems);
+    console.log(total);
   };
 
   return (
