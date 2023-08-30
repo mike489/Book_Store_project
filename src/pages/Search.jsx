@@ -6,14 +6,34 @@ import { categories} from "../TempData";
 import Button from "../components/Button";
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/Cart/cartSlice';
+import { fetchbooks } from '../features/Book/booksSlice';
+
 
 import NavBar from "../components/NavBar";
+import { useEffect } from "react";
 
 const search = () => {
   const dispatch = useDispatch();
-  const books = useSelector(state => state.cart.books);
+  // const books = useSelector(state => state.cart.books);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const total= useSelector ((state)=>state.cart.totalPrice)
+  const books = useSelector(state => state.books.books);
+  const status = useSelector(state => state.books.status);
+  const error = useSelector(state => state.books.error);
+
+  useEffect(() => {
+    dispatch(fetchbooks());
+  }, [dispatch]);
+
+  console.log(books)  
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div>Error loading products: {error}</div>;
+  }
 
   const handleAddToCart = (bookId) => {
     dispatch(addToCart(bookId));
@@ -43,7 +63,7 @@ const search = () => {
                 <div>
                   <BookCard
                     key={book.id}
-                    imageSrc={book.imageSrc}
+                    imageSrc={book.image}
                     price={book.price}
                     name={book.name}
                   ></BookCard>
