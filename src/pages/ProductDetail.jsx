@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from "../components/NavBar";
 import Nav2 from "../components/Nav2";
-import BookCard from '../components/BookCard';
+//import BookCard from '../components/BookCard';
 import Footer from '../components/Footer';
 import book from '../assets/book5 4.png';
 
@@ -21,9 +21,9 @@ export default function ProductDetail() {
   
      <div className="product-detail">
       
-      <div className="product-upper flex pl-20 ">
+      <div className="product-upper flexs ">
         <img src={book} alt=""
-          className="w-2/5  top-270 " />
+          className="w-2/5 " />
         <div className="buttons flex flex-col gap-4 w-1/2 m-20 pr-20">
           <div className="min-buttons flex flex-col gap-7 pb-16">
             <h1 className="text-5xl font-bold">Simple way of piece life</h1>
@@ -62,8 +62,8 @@ export default function ProductDetail() {
 
 
 
-    <div className="flex ml-40" >
-      <div className="bottom-buttons fixed p-10  w-1/3 font-bold border rounded border-gray-300 text-center relative">
+    <div className="flex ml-40  pb-20 gap-5" >
+      <div className="bottom-buttons p-10  w-1/3 font-bold border rounded border-gray-300 text-center relative">
         <div className=" product-bottom flex gap-15 "></div>
         <button onClick={() => toggleSection('description')} className="mb-2 text-lg font-bold text-gray-800">
           Description
@@ -81,13 +81,22 @@ export default function ProductDetail() {
           Producers
         </button>
        </div>
-       <div className="bottom-content flex pl-5 pr-40 text-gray-600 text-sm">
+       <div className="bottom-content flex text-gray-600 text-sm  w-3/5 ">
         {activeSection === 'description' && (
           <p>
             {/* Description content */}
             Lorem ipsum dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
             at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tenetur aliquam! Nulla, rem possimus praesentium ducimus porro omnis. atibus illum aperiam sunt a, delenitssssssi dolore tempore, dolorem laborum aut non.
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem <br />ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tenetur aliquamconsectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            or sit ame! Nulla, rem possimus praesentium ducimus porro omnis. atibus illum aperiam sunt a, delenitssssssi dolore tempore, dolorem laborum aut non.
           </p>
         )}
         {activeSection === 'nutritional' && (
@@ -100,7 +109,15 @@ export default function ProductDetail() {
         {activeSection === 'features' && (
           <p>
             atibus illum aperiam sunt a, deleniti dolore tempore, dolorem laborum aut non.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur, a voluptatibus. Delectus aperiam culpa tenetur deleniti necessitatibus 
+            Lorem ipsum dolor sit, amet consecteLorem ipsum dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem <br />ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilium dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum tur adipisicing elit. Consequatur, a voluptatibus. Delectus aperiam culpa tenetur deleniti necessitatibus 
             repellendus architecto minus ab maiores officia id, a eius, reprehenderit dolorum repudiandae quia!
             {/* Features content */} ssssss
           </p>
@@ -117,7 +134,7 @@ export default function ProductDetail() {
        </div>
        </div>
       
-       <BookCard/>
+      
      
       </div>
       <Footer/>
