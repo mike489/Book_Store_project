@@ -7,16 +7,19 @@ import { booksData, responsive } from "../TempData";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const Product = booksData.map((book) => (
-    <BookCard
-      key={book.id}
-      imageSrc={book.imageSrc}
-      price={book.price}
-      name={book.name}
-    />
+    <Link to={`/ProductDetail/${book.id}`} key={book.id}>
+      <BookCard
+        imageSrc={book.imageSrc}
+        price={book.price}
+        name={book.name}
+      />
+    </Link>
   ));
+  
 
   return (
     <div className="">
@@ -58,12 +61,12 @@ const Home = () => {
         </div>
         <div className="flex justify-between items-center pb-3 w-full mt-10 font-primary">
           <p className="font-bold text-[20px] font-mono">Featured Items</p>
-          <span
-            className="transform transition-transform cursor-pointer"
-            onClick={() => alert("Clicked")}
-          >
-            Show All
-          </span>
+          <Link
+        to="/Search" // Replace with the actual route you want to link to
+        className="transform transition-transform cursor-pointer"
+      >
+        Show All
+      </Link>
         </div>
 
         <Carousel
@@ -89,12 +92,12 @@ const Home = () => {
           <p className=" flex text-[20px] font-bold font-mono">
             Best Seller in Your Area
           </p>
-          <span
-            className="transform transition-transform cursor-pointer "
-            onClick={() => alert("Clicked")}
-          >
-            Show All
-          </span>
+          <Link
+        to="/Search" // Replace with the actual route you want to link to
+        className="transform transition-transform cursor-pointer"
+      >
+        Show All
+      </Link>
         </div>
         <Carousel
           infinite

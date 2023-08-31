@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "../components/NavBar";
 import Nav2 from "../components/Nav2";
-//import BookCard from '../components/BookCard';
+import BookCard from '../components/BookCard';
 import Footer from '../components/Footer';
 import book from '../assets/book5 4.png';
+import Button from "../components/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../features/Cart/cartSlice";
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+
+
 
 
 export default function ProductDetail() {
@@ -12,6 +20,22 @@ export default function ProductDetail() {
   const toggleSection = (section) => {
     setActiveSection(section);
   };
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.cart.books);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const total = useSelector((state) => state.cart.totalPrice);
+
+  const handleAddToCart = (bookId) => {
+    dispatch(addToCart(bookId));
+    console.log(bookId);
+    console.log(cartItems);
+    console.log(total);
+  };
+  
+  const { id } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []);
   
 
   return (
@@ -21,7 +45,7 @@ export default function ProductDetail() {
   
      <div className="product-detail">
       
-      <div className="product-upper flex ">
+      <div className="product-upper flex pl-40 ">
         <img src={book} alt=""
           className="w-2/5 " />
         <div className="buttons flex flex-col gap-4 w-1/2 m-20 pr-20">
@@ -49,7 +73,7 @@ export default function ProductDetail() {
           </div>
           <div className="main-buttons flex flex-col justify-start w-100">
             <button variant="contained" className="w-4/5 h-16 text-xl font-bold bg-green-500">
-              Add to cart
+              Add to Cart
               
             </button>
             <button variant="outlined" className="w-4/5 h-16 text-green-500 border-2 border-green-500 mt-4">
@@ -81,44 +105,31 @@ export default function ProductDetail() {
           Producers
         </button>
        </div>
-       <div className="bottom-content flex text-gray-600 text-sm  w-3/5 ">
+       <div className="bottom-content flex text-gray-600 text-lg  w-3/5 ">
         {activeSection === 'description' && (
           <p>
             {/* Description content */}
             Lorem ipsum dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
             at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem <br />ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tenetur aliquamconsectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            or sit ame! Nulla, rem possimus praesentium ducimus porro omnis. atibus illum aperiam sunt a, delenitssssssi dolore tempore, dolorem laborum aut non.
+            at, facilis eos tm dolor sit amet consecte<br/>tur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            at, facilis eos te Lorem ipsum dolor sit amet co<br/>nsectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            imus praesentium ducimus porro omnis. atibus illum aperiam sunt a, delenitssssssi dolore tempore, dolorem laborum aut non.
           </p>
         )}
         {activeSection === 'nutritional' && (
           <p>
             {/* Nutritional Facts content */}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro molestias animi saepe ea voluptates. Eligendi modi consequ
-            untur sed eos assumenda! Repellendus corporis ea quibusdam. Ipsa ducimus vitae voluptate suscipit sunt. atibus illum aperiam sunt a, deleniti dolore  aaaatempore, dolorem laborum aut non.
+            untur sed eos assumenda! Repellendu<br/>s corporis ea quibusdam. Ipsa ducimus vitae voluptate suscipit sunt. atibus illum aperiam sunt a, deleniti dolore  aaaatempore, dolorem laborum aut non.
           </p>
         )}
         {activeSection === 'features' && (
           <p>
             atibus illum aperiam sunt a, deleniti dolore tempore, dolorem laborum aut non.
-            Lorem ipsum dolor sit, amet consecteLorem ipsum dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
+            Lorem ipsum dolor sit, amet consecbteLorem ipsum dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
             at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
             at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem <br />ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilium dolor sit amet consectetur adipisicing elit. Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos tm dolor sit amet consectetur adipisicing elit.Aliquid pariatur consequuntur adipisci amet debitis odit iste eum molestias repell
-            at, facilis eos te Lorem ipsum tur adipisicing elit. Consequatur, a voluptatibus. Delectus aperiam culpa tenetur deleniti necessitatibus 
-            repellendus architecto minus ab maiores officia id, a eius, reprehenderit dolorum repudiandae quia!
+            fficia id, a eius, reprehenderit dolorum repudiandae quia!
             {/* Features content */} ssssss
           </p>
         )}
@@ -133,11 +144,77 @@ export default function ProductDetail() {
         
        </div>
        </div>
-      
-      
+       <div className="flex justify-between items-center pb-3 ml-20 mr-20 mt-10 font-primary">
+      <p className="font-bold text-[20px] font-mono">Featured Items</p>
+      <Link
+        to="/Search" // Replace with the actual route you want to link to
+        className="transform transition-transform cursor-pointer"
+      >
+        Show All
+      </Link>
+    </div>
+       <div className=" col-span-1 lg:col-span-4 w-full mt-[30px] mb-[50px]   ">
+          <div className=" flex gap-2  flex-wrap items-center justify-center w-full ">
+            {books.map((book) => (
+              // eslint-disable-next-line react/jsx-key
+              <div>
+                <BookCard
+                  key={book.id}
+                  imageSrc={book.imageSrc}
+                  price={book.price}
+                  name={book.name}
+                ></BookCard>
+                <div className=" mx-5 w-100%">
+                  <Button
+                    primary
+                    onClick={() => handleAddToCart(book.id)}
+                    width="100%"
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="flex justify-between items-center pb-3 ml-20 mr-20 mt-10 font-primary">
+      <p className="font-bold text-[20px] font-mono">People also Search</p>
+      <Link
+        to="/Search" // Replace with the actual route you want to link to
+        className="transform transition-transform cursor-pointer"
+      >
+        Show All
+      </Link>
+    </div>
+       <div className=" col-span-1 lg:col-span-4 w-full mt-30 mb-50  ">
+          <div className=" flex gap-2  flex-wrap items-center justify-center w-full ">
+            {books.map((book) => (
+              // eslint-disable-next-line react/jsx-key
+              <div>
+                <BookCard
+                  key={book.id}
+                  imageSrc={book.imageSrc}
+                  price={book.price}
+                  name={book.name}
+                ></BookCard>
+                <div className=" mx-5 w-100%">
+                  <Button
+                    primary
+                    onClick={() => handleAddToCart(book.id)}
+                    width="100%"
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
      
       </div>
-      <Footer/>
+      <div className="mt-20">
+        <Footer />
+      </div>
      </div>
     
   );
