@@ -72,14 +72,20 @@ export default function ProductDetail() {
             </button>
           </div>
           <div className="main-buttons flex flex-col justify-start w-100">
-            <button variant="contained" className="w-4/5 h-16 text-xl font-bold bg-green-500">
-              Add to Cart
-              
-            </button>
-            <button variant="outlined" className="w-4/5 h-16 text-green-500 border-2 border-green-500 mt-4">
-              Save
-            </button>
-           </div>
+  <button
+    variant="contained"
+    className="w-4/5 h-16 text-xl font-bold bg-green-500 hover:bg-green-600 transition-colors duration-300"
+  >
+    Add to Cart
+  </button>
+  <button
+    variant="outlined"
+    className="w-4/5 h-16 text-green-500 border-2 border-green-500 mt-4 hover:text-black hover:bg-gray-100 border-green-600 transition-colors duration-300"
+  >
+    Save
+  </button>
+</div>
+
            <p className="text-xl text-gray-400 ">$10.00 cart minimum to order</p>
            </div>
             </div>

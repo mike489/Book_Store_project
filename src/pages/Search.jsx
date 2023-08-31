@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-
+import React, { useEffect } from 'react';
 import BookCard from "../components/BookCard";
 import CategoryCard from "../components/CategoryCard";
 import { categories } from "../TempData";
@@ -22,6 +22,9 @@ const search = () => {
     console.log(cartItems);
     console.log(total);
   };
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []);
 
   return (
     <div className=" bg-white">

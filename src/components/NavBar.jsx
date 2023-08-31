@@ -34,7 +34,7 @@ const NavBar = () => {
 
         <div className="flex items-center mr-[100px] gap-10">
           <div className="mr-2">
-           <Link to="/"> <button className="flex gap-3 justify-between items-center ">
+           <Link to="/Login"> <button className="flex gap-3 justify-between items-center ">
               <FaRegUserCircle size={20} />
               SignIn
             </button></Link>
