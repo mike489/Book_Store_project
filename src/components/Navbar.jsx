@@ -4,7 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BiMenuAltLeft } from "react-icons/bi";
 
-export default function Navbar() {
+const NavBar = () => {
   return (
     <nav className="bg-white sticky top-0 shadow-sm">
       <div className="container mx-auto flex items-center justify-between gap-10 py-4">
@@ -50,4 +50,4 @@ export default function Navbar() {
   );
 };
 
-export { Navbar };
+export default NavBar;
