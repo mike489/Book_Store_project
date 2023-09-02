@@ -16,7 +16,7 @@ import { useParams } from 'react-router-dom';
 
 export default function ProductDetail() {
   const [number, setNumber] = useState(1);
-  const [activeSection, setActiveSection] = useState('Description'); // Default active section
+  const [activeSection, setActiveSection] = useState('Description'); // Default active section.
   const toggleSection = (section) => {
     setActiveSection(section);
   };
