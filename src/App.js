@@ -5,6 +5,7 @@ import Search from "./pages/Search";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Search" element={<Search />} />
         <Route path="/ProductDetail" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
