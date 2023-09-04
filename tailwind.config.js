@@ -14,7 +14,7 @@ module.exports = {
         "secondary-default-color": "bg-red-500",
       },
       fontFamily: {
-        primary: ["Catamaran", "sans-serif"],
+        primary: ["Inter", "sans-serif"],
       },
     },
   },

@@ -1,53 +1,161 @@
-import React from "react";
-import { FaSearch, FaRegUserCircle } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
+import React, { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { FaBars } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+// import Categories from "./Categories";
+import { useDispatch, useSelector } from "react-redux";
+// import { logouting } from "../Redux/userReducer";
+// import { logout } from "../Redux/authRequest";
+// import { publicRequest } from "../request";
+// import decode from "jwt-decode";
 
-const NavBar = () => {
+const Navbar = ({ toggle }) => {
+  const navigate = useNavigate();
+
+  const [search, setSearch] = useState("");
+  // const userId = JSON.parse(localStorage.getItem("persist:root"))?.user;
+  // const currentUser = userId && JSON.parse(userId).currentUser;
+  // const id = currentUser?._id;
+
+  const { cartQuantity } = useSelector((state) => state.cart);
+
+  const name = useSelector((state) => state.user.currentUser?.result);
+  const user = useSelector((state) => state.user.currentUser?.token);
+  const username = user ? name.username : "signin";
+  // const dispach = useDispatch();
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   logout(dispach);
+  //   navigate("/");
+  // };
+  // useEffect(() => {
+  //   const token = user;
+  //   if (token) {
+  //     const decodedToken = decode(token);
+  //     if (decodedToken.exp * 1000 < new Date().getTime()) logout(dispach);
+  //   }
+  // }, []);
+
+  // const handleSearch=async(e)=>{
+  //   e.preventDefault();
+  //   if(search.trim()){
+
+  //     try{
+
+  //       const productItems = await publicRequest.get(  /product/search?searchQuery=${search});
+  //       navigate(/search?products=${search},{state:{data:productItems.data}})
+  //       setSearch('')
+  //      }catch(err){
+  //        console.log(err)
+
+  //      }
+  //   }else{
+  //     navigate('/')
+  //   }
+  // }
+
   return (
-    <nav className="bg-white sticky top-0 shadow-sm">
-      <div className="container mx-auto flex items-center justify-between gap-10 py-4">
-        <div className="pl-[50px] flex justify-center items-center gap-10">
-          {" "}
-          {/* Reduced left padding */}
-          <button className="text-black">
-            <BiMenuAltLeft size={32} />
-          </button>
-          <div className="text-lg font-bold text-black">
-            <span>Logo</span>
+    <nav className="">
+      <div className="bg-stone-900 flex flex-grow items-center py-2 p-1">
+        <div
+          className="flex items-center flex-grow sm:flex-grow-0
+      hover:cursor-pointer text-white mx-1 p-1 w-16 sm:w-32"
+        >
+          <Link to="/">
+            <img src="/logobook.png" alt="Logo" width={50} height={30} />
+          </Link>
+        </div>
+        <div
+          className="hidden sm:flex items-center flex-grow cursor-pointer
+      bg-red-500 hover:bg-red-600 rounded-[4px] h-12 shadow-lg"
+        >
+          <input
+            type="text"
+            placeholder="search products"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="h-full w-4 flex-grow p-2 py-3 focus:outline-none rounded-l-[4px]"
+          />
+          {/* <SearchIcon className="h-12 p-4 text-white" onClick={handleSearch} /> */}
+        </div>
+        <div className=" flex flex-col group relative text-white text-xs p-2 mx-1 cursor-pointer hover:outline outline-1">
+          <p className="font-medium">Hello,{username}</p>
+          <p className="font-semibold">Account & orders</p>
+          <div className="absolute bg-white shadow-lg top-12 z-50 right-0 hidden group-hover:flex group-hover:flex-col">
+            <div className="p-2 px-4 py-4">
+              {user ? (
+                <button
+                  // onClick={handleClick}
+                  className="bg-gradient-to-b from-red-600 
+        to-red-500 p-1 px-20  text-white text-sm font-medium "
+                >
+                  logout
+                </button>
+              ) : (
+                <Link to="/login">
+                  <button
+                    className="bg-gradient-to-b from-green-600
+        to-green-500 p-1 px-20  text-white text-sm font-medium "
+                  >
+                    signin
+                  </button>
+                </Link>
+              )}
+            </div>
+            <div className="flex flex-col   px-4">
+              <h2 className=" text-slate-600  text-[16px] text-center  font-semibold pb-2">
+                Your Account
+              </h2>
+              <div className="flex flex-col space-y-1">
+                {/* <Link to={user ? /account/${id} : "/login"}>
+          <h2 className=' text-slate-600 font-medium  text-[14px] hover:underline'>account</h2>
+          </Link> */}
+                {/* <Link to={user ? /order/${id} : "/login"}>
+          <h2 title={user ? "" :"sign in to see your orders"}
+          className=' text-slate-600  font-medium  text-[14px] pb-3 hover:underline'>orders</h2>
+          </Link> */}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="relative  w-full flex items-center flex-auto ">
-        {/* <div className="relative flex items-center"> */}
-              <FaSearch size={16} className=" absolute left-3 text-gray-600" />
-              <input
-                type="text"
-                className="bg-[#F6F6F6] flex flex-auto text-[18px] font-normal text-black py-2 pl-10 pr-3  focus:outline-none focus:ring focus:border-blue-300"
-                placeholder="Search books..."
-              />
-            {/* </div> */}
-        </div>
-
-        <div className="flex items-center mr-[100px] gap-10">
-          <div className="mr-2">
-            <button className="flex gap-3 justify-between items-center ">
-              <FaRegUserCircle size={20} />
-              SignIn
-            </button>
+        <Link to="/cart">
+          <div className="relative flex items-center px-2 mr-4 py-1 cursor-pointer hover:outline outline-1 text-white">
+            <AiOutlineShoppingCart className="h-10 text-white " />
+            <span
+              className="absolute top-0 right-0 md:right-12 text-gray-700 font-semibold text-xs
+          bg-yellow-400 rounded-full h-4 w-4 text-center"
+            >
+              {cartQuantity}
+            </span>
+            <span className="hidden sm:flex text-white font-medium text-xs sm:text-sm">
+              Basket
+            </span>
           </div>
-          <button className=" flex gap-3 justify-center items-center">
-            <CiHeart size={20} className="flex gap-2" />
-            Wishlist
-          </button>
-          <button className="flex  gap-3 justify-center items-center">
-            <AiOutlineShoppingCart className="flex  gap-2" />
-            $0.00
-          </button>
+        </Link>
+        <div className="flex sm:hidden cursor-pointer" onClick={toggle}>
+          <FaBars size={25} className=" text-white mr-2 hover:animate-ping" />
         </div>
       </div>
+      {/* search */}
+      <div className="sm:hidden bg-sky-700 flex flex-grow items-center py-2 p-1 ">
+        <div
+          className=" flex items-center flex-grow cursor-pointer
+      bg-red-500 hover:bg-red-600 rounded-[4px] h-12 shadow-lg"
+        >
+          <input
+            type="text"
+            placeholder="search products"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="h-full w-4 flex-grow p-2 py-3 focus:outline-none rounded-l-[4px]"
+            //   onChange={(e)=>setFilter(e.target.value)}
+          />
+          {/* <SearchIcon className="h-12 p-4 text-white " onClick={handleSearch} /> */}
+        </div>
+      </div>
+      {/* <Categories /> */}
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
