@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/Cart/cartSlice";
 
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const search = () => {
