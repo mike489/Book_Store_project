@@ -15,12 +15,13 @@ import SimpleCard from "../components/card/Card";
 
 const Home = () => {
   const Product = booksData.map((book) => (
-    <BookCard
-      key={book.id}
-      imageSrc={book.imageSrc}
-      price={book.price}
-      name={book.name}
-    />
+    <Link to={`/ProductDetail/${book.id}`} key={book.id}>
+      <BookCard
+        imageSrc={book.imageSrc}
+        price={book.price}
+        name={book.name}
+      />
+    </Link>
   ));
 
   return (
