@@ -9,7 +9,7 @@ import { addToCart } from '../features/Cart/cartSlice';
 import { fetchbooks } from '../features/Book/booksSlice';
 
 
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import { useEffect } from "react";
 
 const search = () => {
