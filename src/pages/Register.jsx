@@ -18,6 +18,7 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    console.log("")
 
     const newUser = {
       name: data.name,

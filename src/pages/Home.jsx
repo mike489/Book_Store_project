@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../components/Footer";
 // import Button from "../components/Button";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar";
 import BookCard from "../components/BookCard";
 import { booksData, responsive } from "../TempData";
 
