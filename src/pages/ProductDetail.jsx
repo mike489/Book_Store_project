@@ -3,16 +3,10 @@ import NavBar from "../components/Navbar";
 import Nav2 from "../components/Nav2";
 import BookCard from '../components/BookCard';
 import Footer from '../components/Footer';
-import book from '../assets/book5 4.png';
 import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../features/Cart/cartSlice";
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-
-
-
-
+import { Link, useParams } from 'react-router-dom';
 
 export default function ProductDetail() {
   const [number, setNumber] = useState(1);
@@ -105,8 +99,8 @@ export default function ProductDetail() {
 
 
 
-    <div className="flex ml-40  pb-20 gap-5" >
-      <div className="bottom-buttons p-10  w-1/3 font-bold border rounded border-gray-300 text-center relative">
+    <div className="flex md:ml-40  pb-20 gap-5" >
+      <div className="bottom-buttons md:p-10  w-1/3 font-bold border rounded border-gray-300 text-center relative">
         <div className=" product-bottom flex gap-15 "></div>
         <button onClick={() => toggleSection('description')} className="mb-2 text-lg font-bold text-gray-800">
           Description
