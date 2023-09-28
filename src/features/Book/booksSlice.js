@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "axios"; 
+import books_url from '../../utils/baseUrl';
 
-const books_url = 'https://yenetta-bookstore.onrender.com/api/books';
+const url = `${books_url}/api/books`;
 
 export const fetchbooks = createAsyncThunk('products/fetchProducts', async () => {
     try {
-        const response = await axios.get(books_url);
+        const response = await axios.get(url);
         return response.data;
     } catch (error) {
         throw new Error(error.message);

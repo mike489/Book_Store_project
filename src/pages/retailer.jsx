@@ -3,6 +3,11 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { RiEdit2Line, RiDeleteBin6Line } from "react-icons/ri";
 
+
+import books_url from '../utils/baseUrl';
+
+const url = `${books_url}/api`;
+
 const Retailer = () => {
   const token = Cookies.get("accessToken");
   let userId = null;
@@ -17,7 +22,7 @@ const Retailer = () => {
   useEffect(() => {
     // Send a GET request to your API endpoint
     axios
-      .get(`http://localhost:5000/api/retailers/${userId}`)
+      .get(`${url}/retailers/${userId}`)
       .then((response) => {
         const books = response.data.listedBooks;
         console.log(books);

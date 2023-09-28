@@ -1,44 +1,44 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import { Link  , useNavigate} from "react-router-dom";
+import React from "react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { Link, useNavigate } from "react-router-dom";
+
+import books_url from "../utils/baseUrl";
+
+const url = `${books_url}/api`;
 function AddBook() {
-  const Nav = useNavigate() 
+  const Nav = useNavigate();
   const { register, handleSubmit, setValue } = useForm();
-
-
-  
-
-  
 
   const onSubmit = async (data) => {
     const formData = new FormData();
-    formData.append('title', data.title);
-    formData.append('author', data.author);
-    formData.append('description', data.description);
-    formData.append('genre', data.genre);
-    formData.append('price', data.price);
-    formData.append('bookImage', data.image[0]);
+    formData.append("title", data.title);
+    formData.append("author", data.author);
+    formData.append("description", data.description);
+    formData.append("genre", data.genre);
+    formData.append("price", data.price);
+    formData.append("bookImage", data.image[0]);
 
-    console.log(formData)
+    console.log(formData);
 
     try {
-      const token = Cookies.get('accessToken');
-      const response = await axios.post('http://localhost:5000/api/books', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const token = Cookies.get("accessToken");
+      const response = await axios.post(
+        `${url}/books`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      console.log('Book created:', response.data);
-      Nav('/search')
-
-    
+      console.log("Book created:", response.data);
+      Nav("/search");
     } catch (error) {
-      console.error('Error creating book:', error);
-      
+      console.error("Error creating book:", error);
     }
   };
 
@@ -47,7 +47,10 @@ function AddBook() {
       <h1 className="text-3xl font-semibold mb-5">Add a New Book</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
-          <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="title"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Title
           </label>
           <input
@@ -56,11 +59,14 @@ function AddBook() {
             name="title"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Book Title"
-            {...register('title', { required: true })}
+            {...register("title", { required: true })}
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="author" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="author"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Author
           </label>
           <input
@@ -69,11 +75,14 @@ function AddBook() {
             name="author"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Author"
-            {...register('author', { required: true })}
+            {...register("author", { required: true })}
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="description"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Description
           </label>
           <textarea
@@ -81,28 +90,35 @@ function AddBook() {
             name="description"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Book Description"
-            {...register('description', { required: true })}
+            {...register("description", { required: true })}
           ></textarea>
         </div>
         <div className="mb-4">
-          <label htmlFor="genre" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="genre"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Genre
           </label>
           <select
             id="genre"
             name="genre"
-            {...register('genre', { required: true })}
+            {...register("genre", { required: true })}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           >
-            <option value="" disabled>Select Genre</option>
+            <option value="" disabled>
+              Select Genre
+            </option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Mystery">Mystery</option>
-
           </select>
         </div>
         <div className="mb-4">
-          <label htmlFor="price" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="price"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Price
           </label>
           <input
@@ -111,11 +127,14 @@ function AddBook() {
             name="price"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="Price"
-            {...register('price', { required: true })}
+            {...register("price", { required: true })}
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="image"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             image
           </label>
           <input
@@ -124,10 +143,10 @@ function AddBook() {
             name="image"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="chose image"
-            {...register('image', { required: true })}
+            {...register("image", { required: true })}
           />
         </div>
-        
+
         <div className="mb-6">
           <button
             type="submit"
@@ -141,4 +160,4 @@ function AddBook() {
   );
 }
 
-export default AddBook; 
+export default AddBook;

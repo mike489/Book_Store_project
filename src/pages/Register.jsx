@@ -7,6 +7,10 @@ import { useForm } from "react-hook-form";
 import { signup } from "../features/user/UserSlice";
 import axios from "axios";
 
+import books_url from '../utils/baseUrl';
+
+const url = `${books_url}/api`;
+
 const Signup = () => {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.user);
@@ -22,7 +26,7 @@ const Signup = () => {
     console.log(data);
   
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', data);
+      const response = await axios.post(`${url}/auth/signup`, data);
       console.log(response.data);
       reset();
     } catch (error) {
