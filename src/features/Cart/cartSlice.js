@@ -1,39 +1,48 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { booksData } from "../../TempData";
+import { createSlice } from "@reduxjs/toolkit"
+import { useSelector } from "react-redux";
+import booksReducer from "../Book/booksSlice"
+
+
 
 const cartSlice = createSlice({
+  
   name: "cart",
   initialState: {
-    books: booksData,
     cartItems: [],
     totalPrice: 0,
   },
   reducers: {
     addToCart: (state, action) => {
-      const bookId = action.payload;
-      const bookToAdd = state.books.find((book) => book.id === bookId);
+      const { bookId, books } = action.payload;
+      const bookToAdd = books.find((book) => book._id === bookId);
+
+      console.log('bookToAdd:', bookToAdd);
+    
       if (bookToAdd) {
         const existingCartItem = state.cartItems.find(
-          (item) => item.book.id === bookId
+          (item) => item.book._id === bookId
         );
+    
         if (existingCartItem) {
           existingCartItem.quantity++;
         } else {
           state.cartItems.push({ book: bookToAdd, quantity: 1 });
         }
+    
         state.totalPrice += bookToAdd.price;
       }
     },
+    
     removeFromCart: (state, action) => {
       const bookIdToRemove = action.payload;
       const existingCartItem = state.cartItems.find(
-        (item) => item.book.id === bookIdToRemove
+        (item) => item.book._id === bookIdToRemove
       );
 
       if (existingCartItem) {
         if (existingCartItem.quantity === 1) {
           state.cartItems = state.cartItems.filter(
-            (item) => item.book.id !== bookIdToRemove
+            (item) => item.book._id !== bookIdToRemove
           );
         } else {
           existingCartItem.quantity--;
@@ -42,6 +51,7 @@ const cartSlice = createSlice({
         state.totalPrice -= existingCartItem.book.price;
       }
     },
+   
   },
 });
 

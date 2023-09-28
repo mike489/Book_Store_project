@@ -13,13 +13,14 @@ const userSlice = createSlice({
     logger: (state, action) => {
       state.username = action.payload.username;
       state.email = action.payload.email;
+      state.role = action.payload.role
     },
     signup: (state, action) => {
       const newUser = {
         id: new Date().getTime().toString(), // Generate unique ID
         email: action.payload.email,
-        name: action.payload.name,
-        password: action.payload.password,
+        name: action.payload.username,
+        role: action.payload.role,
       };
       state.users = [...state.users, newUser];
     },
