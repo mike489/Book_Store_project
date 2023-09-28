@@ -66,21 +66,21 @@ export const categories = [
   {
     mainTitle: "Departments",
     categoryTitles: [
-      "Fruit & Vegetable",
-      "Pantry",
-      "Organic Shop",
-      "Health Snack",
-      "Kitchen & Food Staff",
+      "All",
+      "Science Fiction",
+      "Fantasy",
+      "Mystery",
+      
     ],
   },
   {
     mainTitle: "Departments",
     categoryTitles: [
-      "Fruit & Vegetable",
-      "Pantry",
-      "Organic Shop",
-      "Health Snack",
-      "Kitchen & Food Staff",
+      "All",
+      "Science Fiction",
+      "Fantasy",
+      "Mystery",
+      
     ],
   },
 ];

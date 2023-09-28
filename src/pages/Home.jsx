@@ -10,16 +10,27 @@ import "react-multi-carousel/lib/styles.css";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Hero from "../components/hero/Hero";
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchbooks } from '../features/Book/booksSlice';
+import { useEffect } from "react";
 
 import SimpleCard from "../components/card/Card";
 
+
+
 const Home = () => {
-  const Product = booksData.map((book) => (
-    <Link to={`/ProductDetail/${book.id}`} key={book.id}>
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchbooks());
+  }, [dispatch]);
+  
+  const books = useSelector(state => state.books.books);
+  const Product = books.map((book) => (
+    <Link to={`/ProductDetail/${book._id}`} key={book._id}>
       <BookCard
-        imageSrc={book.imageSrc}
+        imageSrc={`https://res.cloudinary.com/dmeqlpc2o/image/upload/${book.image}`}
         price={book.price}
-        name={book.name}
+        name={book.title}
       />
     </Link>
   ));

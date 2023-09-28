@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { signup } from "../features/user/UserSlice";
+import axios from "axios";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -16,14 +17,22 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log("")
+  const onSubmit = async(data) => {
 
+    console.log(data);
+  
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/signup', data);
+      console.log(response.data);
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
     const newUser = {
-      name: data.name,
+      name: data.username,
       email: data.email,
       password: data.password,
+      role: data.role,
     };
     dispatch(signup(newUser));
     const updatedUsers = [...users, newUser];
@@ -58,7 +67,7 @@ const Signup = () => {
                       <div className="grow shrink basis-0 h-full justify-start items-center gap-2 flex">
                         <Input
                           type="text"
-                          {...register("name", {
+                          {...register("username", {
                             required: true,
                             message: "Enter your name",
                           })}
@@ -122,6 +131,24 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
+              <div className="self-stretch  flex-col justify-start items-start gap-1.5 flex">
+                    <div className="text-slate-700 text-sm font-medium leading-tight">
+                      Role
+                    </div>
+                    <div className=" w-full self-stretch px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
+                      <div className="grow shrink basis-0 h-full justify-start items-center gap-2 flex">
+                        <Input
+                          type="text"
+                          {...register("role", {
+                            required: true,
+                            message: "Enter your role",
+                          })}
+                          aria-invalid={errors.name ? "true" : "false"}
+                          placeholder="your role"
+                        />
+                      </div>
+                    </div>
+                  </div>
             </div>
             <div className="self-stretch justify-between items-center inline-flex gap-8">
               <div className="justify-start items-center gap-2 flex">

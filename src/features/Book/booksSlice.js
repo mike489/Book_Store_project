@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const books_url = 'https://fakestoreapi.com/products?limit=4';
+const books_url = 'https://yenetta-bookstore.onrender.com/api/books';
 
 export const fetchbooks = createAsyncThunk('products/fetchProducts', async () => {
     try {

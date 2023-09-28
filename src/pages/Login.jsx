@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link  , useNavigate} from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import Cookies from 'js-cookie';
+import { Navigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import { logger } from "../features/user/UserSlice";
 
+
+import axios from "axios";
 const Login = () => {
+  const Nav = useNavigate() 
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.user);
   const {
@@ -17,15 +22,15 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    const foundUser = users.find(
-      (user) => user.email === data.email && user.password === data.password
-    );
-    if (foundUser) {
-      dispatch(logger);
-    } else {
-      console.log("Invalid email or password");
+  const onSubmit = async(data) => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/login', data);
+      console.log(response.data)
+      Cookies.set('accessToken', response.data.accessToken);
+      Nav('/')
+      return 
+    } catch (error) {
+      console.error(error);
     }
     reset();
   };
@@ -56,31 +61,28 @@ const Login = () => {
             <div className="self-stretch  flex-col justify-start items-start gap-5 flex">
               <div className="self-stretch  flex-col justify-start items-start flex">
                 <div className="self-stretch  flex-col justify-start items-start gap-1.5 flex">
+                <div className="self-stretch  flex-col justify-start items-start gap-1.5 flex">
                   <div className="self-stretch  flex-col justify-start items-start gap-1.5 flex">
                     <div className="text-slate-700 text-sm font-medium leading-tight">
-                      Email
+                      Name
                     </div>
                     <div className=" w-full self-stretch px-3.5 py-2.5 bg-white rounded-lg shadow border border-gray-300 justify-start items-center gap-2 inline-flex">
                       <div className="grow shrink basis-0 h-full justify-start items-center gap-2 flex">
                         <Input
-                          label="Email"
-                          type="email"
-                          {...register("email", {
+                          type="text"
+                          {...register("username", {
                             required: true,
-                            pattern: {
-                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: "invalid email address",
-                            },
+                            message: "Enter your name",
                           })}
-                          aria-invalid={errors.email ? "true" : "false"}
-                          placeholder="Enter your email"
+                          aria-invalid={errors.name ? "true" : "false"}
+                          placeholder="Enter your name"
                         />
-                        {errors.email && (
-                          <p role="alert">{errors.email?.message}</p>
-                        )}
                       </div>
                     </div>
                   </div>
+
+                 
+                </div>
                 </div>
               </div>
               <div className="self-stretch flex-col justify-start items-start flex">
